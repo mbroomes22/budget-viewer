@@ -86,3 +86,16 @@ button:hover {
   border: 1px rgba(4, 44, 62, 0.2) solid;
   font-size: 1em;
 }
+
+.acct-choices {
+  display: flex;
+  justify-content: space-around;
+}
+
+.acct-choices h3 {
+  cursor: pointer;
+}
+
+.acct-choices h3:hover {
+  color: lime;
+}
