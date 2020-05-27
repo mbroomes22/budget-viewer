@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 import {Login, Signup, UserHome} from './components'
 import About from './components/about'
 import Account from './components/bank-account'
+import Budget from './components/portal-views/budget-portal'
+import Income from './components/portal-views/income-portal'
+import Spending from './components/portal-views/spending-portal'
 import {me} from './store'
 
 /**
@@ -29,6 +32,9 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
             <Route path="/account" component={Account} />
+            <Route path="/spending" component={Spending} />
+            <Route path="/budget" component={Budget} />
+            <Route path="/income" component={Income} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

@@ -100,11 +100,25 @@ button:hover {
   color: lime;
 }
 
+.acct-choices h5:hover {
+  color: lime;
+}
+
 .portal-card {
-  box-shadow: 10px 5px 30px rgb(0, 0, 0);
-  background-color: rgb(142, 97, 226);
+  /* box-shadow: 10px 5px 30px rgb(0, 0, 0);
+  background-color: rgb(142, 97, 226, 0.3); */
   padding: 1rem;
   border-radius: 5px;
   height: 400px;
-  width: 20%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.portal-card img {
+  border: 2px solid black;
+  box-shadow: 10px 5px 30px rgb(0, 0, 0);
+  max-width: 100%;
+  width: 200px;
+  height: 300px;
+  max-height: 80%;
 }
