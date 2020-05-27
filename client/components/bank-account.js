@@ -6,9 +6,15 @@ export default class Account extends Component {
       <div>
         <h1>Your Bank Account Details</h1>
         <div className="acct-choices">
-          <h3>View my Income</h3>
-          <h3>View/set my budget</h3>
-          <h3>View my spending</h3>
+          <div className="portal-card">
+            <h3>View my Income</h3>
+          </div>
+          <div className="portal-card">
+            <h3>View/set my budget</h3>
+          </div>
+          <div className="portal-card">
+            <h3>View my spending</h3>
+          </div>
         </div>
       </div>
     )
