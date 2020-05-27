@@ -1,14 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width initial-scale=1.0'>
-    <title>Boilermaker</title>
+    <meta name="Description" content="Budget Monitoring App, Category: Finance">
+    <title>Budget Viewer</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest" />
+    <link rel="mask-icon" href="static/favicon.ico" color="black">
+    <link rel="canonical" href="https://three-finance.herokuapp.com/">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <meta name="msapplication-TileColor" content="black">
+    <meta name="theme-color" content="black">
     <script defer src="/bundle.js"></script>
   </head>
   <body>
+    <div id="loader"><h1>Loading...</h1></div>
     <div id="app"></div>
   </body>
+  <script>
+    let loader;
+    function loadNow(opacity) {
+      if (opacity <= 0) {
+        displayContent();
+      } else {
+        loader.style.opacity = opacity;
+        window.setTimeout(function() {
+          loadNow(opacity - 0.5)
+        }, 100)
+      }
+    }
+
+    function displayContent() {
+      loader.style.display = 'none';
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      loader = document.getElementById('loader');
+      loadNow(1);
+    })
+
+//pwa service worker detection
+    if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+  navigator.serviceWorker
+  .register('./sw_cached.js')
+  .then(reg => console.log('Service Worker: Registered'))
+  .catch(err => console.log(`Service Worker Error: ${err}`))
+})
+}
+  </script>
 </html>
 
