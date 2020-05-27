@@ -3,7 +3,7 @@
 Having a hard time balancing the budget and gettng youself to visualize exactly how much money you're spending? Well blow that money no more! Let three-finance take you to the world of your bank account as you touch and feel all your hard earned money and easily view exactly where it's going right before your eyes.
 [Budget-Viewer Guided Tour][three-finance]
 
-[three-finance]: https://three-finance.herokuapp.com/
+[three-finance]: https://budget-three.herokuapp.com/
 
 ## Technologies
 
