@@ -117,8 +117,9 @@ button:hover {
 .portal-card img {
   border: 2px solid black;
   box-shadow: 10px 5px 30px rgb(0, 0, 0);
+  border-radius: 100%;
   max-width: 100%;
   width: 200px;
-  height: 300px;
+  height: 350px;
   max-height: 80%;
 }
