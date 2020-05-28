@@ -112,6 +112,7 @@ button:hover {
   height: 400px;
   width: 100%;
   cursor: pointer;
+  color: gold;
 }
 
 .portal-card img {
