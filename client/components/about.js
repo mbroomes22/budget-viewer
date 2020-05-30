@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import * as THREE from 'three'
-import {OrbitControls} from 'three-orbitcontrols-ts'
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import {VRButton} from 'three/examples/jsm/webxr/VRButton'
 
 export default class About extends Component {
   componentDidMount() {
