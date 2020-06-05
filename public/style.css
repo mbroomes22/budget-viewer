@@ -33,13 +33,16 @@ body {
 }
 
 .nav-area {
-  background: rgb(24, 136, 106);
+  background: #1a2849
+    url(https://previews.123rf.com/images/chrupka/chrupka1409/chrupka140900001/31298514-different-foreign-currency-background-concept-of-exchange-rate.jpg);
   padding-top: 30px;
 }
 
 .heading-insignia {
   display: flex;
   justify-content: center;
+  background: rgb(134, 154, 199, 0.8);
+  padding: 5px;
 }
 
 a {
@@ -59,14 +62,15 @@ nav div {
 
 nav a {
   margin: 1em;
-  color: honeydew;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  background: rgb(134, 154, 199, 0.8);
+  padding: 1%;
 }
 
 nav a:hover {
   background: rgb(12, 66, 83);
-  border-radius: 25%;
-  width: 5%;
-  height: 5%;
+  color: aliceblue;
 }
 
 form div {

@@ -8,7 +8,7 @@ const Box = () => {
   const [active, setActive] = useState(false)
   const props = useSpring({
     scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
-    color: hovered ? 'hotpink' : 'lightblue'
+    color: hovered ? '#ffaac3' : '#b063c5'
   })
   // useRender(() => {
   //   meshRef.current.rotation.y += 0.01
