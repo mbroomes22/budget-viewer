@@ -10,7 +10,10 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
+    <div className="auth-form">
+      <h3>
+        <img src="./gold.png" width="40" alt="gold bar logo" /> Budget Viewer
+      </h3>
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="email">

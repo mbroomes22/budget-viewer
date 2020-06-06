@@ -116,6 +116,15 @@ button:hover {
   font-size: 1em;
 }
 
+.auth-form {
+  margin: auto;
+  width: 30%;
+  border: 3px solid #73ad21;
+  border-radius: 5%;
+  padding: 10px;
+  text-align: center;
+}
+
 .acct-choices {
   display: flex;
   justify-content: space-around;
