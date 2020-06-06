@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import CurrencyConverter from './currency/currency-convert'
+import BudgetDetails from './currency/budget-details'
+import Stocks from './currency/stocks'
 
 /**
  * COMPONENT
@@ -16,6 +18,18 @@ export const UserHome = props => {
         <h4 className="card-elem">Currency Converter</h4>
         <br />
         <CurrencyConverter />
+      </div>
+      <div className="home-option">
+        <h3 className="card-elem">Your Budget Summary</h3> <br />
+        <h4 className="card-elem">Currency Converter</h4>
+        <br />
+        <BudgetDetails />
+      </div>
+      <div className="home-option">
+        <h3 className="card-elem">Want to Invest?</h3> <br />
+        <h4 className="card-elem">Currency Converter</h4>
+        <br />
+        <Stocks />
       </div>
     </div>
   )
