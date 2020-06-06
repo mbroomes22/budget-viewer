@@ -5,7 +5,7 @@ export default class Account extends Component {
   render() {
     return (
       <div>
-        <h1>Your Bank Account Details</h1>
+        <h1 className="header">Your Bank Account Details</h1>
         <div className="acct-choices">
           <Link to="/income">
             <div className="portal-card">

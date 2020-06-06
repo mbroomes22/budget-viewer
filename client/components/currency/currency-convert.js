@@ -6,7 +6,7 @@ export class CurrencyConverter extends Component {
   render() {
     return (
       <div>
-        <p className="money">10 US Dollars</p>
+        <p className="money">0 US Dollars</p>
         <input className="field" />
         <select className="currencies field">
           <option value="0">United States Dollar</option>
@@ -24,8 +24,8 @@ export class CurrencyConverter extends Component {
           <option value="12">Turkish Lira</option>
         </select>
 
-        <p className="money">equals 8.86 Euros</p>
-        <input className="field" value="8.86" readOnly />
+        <p className="money">equals 0 Euros</p>
+        <input className="field" value="0" readOnly />
         <select className="currencies field">
           <option value="0">Euro</option>
           <option value="1">United States Dollar</option>

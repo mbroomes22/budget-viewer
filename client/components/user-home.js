@@ -10,9 +10,10 @@ export const UserHome = props => {
   const {email} = props
   return (
     <div>
-      <h3>Welcome, {email}</h3>
+      <h3 className="header">Welcome, {email}</h3>
       <div className="home-option">
-        <h3>Currency Converter</h3>
+        <h3 className="card-elem">Travelling Soon?</h3> <br />
+        <h4 className="card-elem">Currency Converter</h4>
         <br />
         <CurrencyConverter />
       </div>

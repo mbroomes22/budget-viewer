@@ -78,6 +78,10 @@ form div {
   display: inline-block;
 }
 
+.header {
+  margin-left: 2%;
+}
+
 .oauth {
   color: whitesmoke;
 }
@@ -162,11 +166,13 @@ button:hover {
   border-radius: 5px;
   height: 400px;
   width: 30%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 3rem;
+  min-width: 263px;
   margin: 2%;
   padding: 1rem;
+}
+
+.card-elem {
+  margin: 0;
 }
 
 .money {
