@@ -1,16 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import CurrencyConverter from './currency/currency-convert'
 
 /**
  * COMPONENT
  */
 export const UserHome = props => {
   const {email} = props
-
   return (
     <div>
       <h3>Welcome, {email}</h3>
+      <div className="home-option">
+        <h3>Currency Converter</h3>
+        <br />
+        <CurrencyConverter />
+      </div>
     </div>
   )
 }

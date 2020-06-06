@@ -78,17 +78,26 @@ form div {
   display: inline-block;
 }
 
+.oauth {
+  color: whitesmoke;
+}
+
+.oauth:hover {
+  color: lime;
+}
+
 button {
-  background-color: rgb(10, 88, 152);
-  font-family: 'Courier New', Courier, monospace;
+  background-color: #1a2849;
+  font-family: monospace;
   color: whitesmoke;
   border-radius: 4px;
-  font-size: 1em;
+  border-color: rgb(50, 7, 177, 0.7);
+  font-size: 1.5em;
   padding: 10px 50px 10px 50px;
 }
 
 button:hover {
-  background: rgb(4, 55, 97);
+  background: #152241;
   cursor: pointer;
 }
 
@@ -99,7 +108,7 @@ button:hover {
   justify-content: center;
   margin: 1%;
   border-radius: 6px;
-  border: 1px rgba(4, 44, 62, 0.2) solid;
+  border: 1px rgba(4, 44, 62, 0.2, 0.7) solid;
   font-size: 1em;
 }
 
@@ -144,4 +153,27 @@ button:hover {
 
 .portal-card:hover img {
   filter: grayscale(0%);
+}
+
+/* currency converter */
+.home-option {
+  box-shadow: 10px 5px 30px rgb(0, 0, 0);
+  background-color: rgb(142, 97, 226, 0.3);
+  border-radius: 5px;
+  height: 400px;
+  width: 30%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;
+  margin: 2%;
+  padding: 1rem;
+}
+
+.money {
+  color: rgb(174, 174, 174);
+}
+
+.currencies {
+  background: #b063c5;
+  font-size: 14px;
 }

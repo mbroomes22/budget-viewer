@@ -31,7 +31,9 @@ const AuthForm = props => {
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Bank of America</a>
+      <a href="/auth/google" className="oauth">
+        {displayName} with Bank of America
+      </a>
     </div>
   )
 }
