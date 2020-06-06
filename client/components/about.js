@@ -1,5 +1,5 @@
 import React, {Component, useState, useRef} from 'react'
-import {Canvas, useRender} from 'react-three-fiber'
+import {Canvas, useFrame} from 'react-three-fiber'
 import {useSpring, a} from 'react-spring/three'
 
 const Box = () => {
@@ -10,9 +10,9 @@ const Box = () => {
     scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
     color: hovered ? '#ffaac3' : '#b063c5'
   })
-  // useRender(() => {
-  //   meshRef.current.rotation.y += 0.01
-  // })
+  useFrame(() => {
+    meshRef.current.rotation.x = meshRef.current.rotation.y += 0.01
+  })
 
   return (
     <a.mesh
