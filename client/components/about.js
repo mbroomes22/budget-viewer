@@ -1,10 +1,20 @@
-import React, {Component, useState, useRef} from 'react'
+import React, {Component, useState, useRef, useEffect} from 'react'
 import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 import {Canvas, extend, useThree, useFrame} from 'react-three-fiber'
 import {useSpring, a} from 'react-spring/three'
 
 extend({OrbitControls})
+
+const AirCraft = () => {
+  const [model, setModel] = useState()
+  useEffect(() => {
+    new GLTFLoader().load('../../public/3d_files/airplane/scene.gltf', setModel)
+  })
+
+  return model ? <primitive object={model.scene} /> : null
+}
 
 const Controls = () => {
   const {camera, gl} = useThree()
@@ -59,18 +69,22 @@ const Box = () => {
 export default class About extends Component {
   render() {
     return (
-      <Canvas
-        camera={{position: [0, 0, 5]}}
-        onCreated={({gl}) => {
-          gl.shadowMap.enabled = true
-          gl.shadowMap.type = THREE.PCFSoftShadowMap
-        }}
-      >
-        <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} />
-        <Controls />
-        <Box />
-        <Plane />
-      </Canvas>
+      <>
+        <Canvas
+          camera={{position: [0, 0, 5]}}
+          onCreated={({gl}) => {
+            gl.shadowMap.enabled = true
+            gl.shadowMap.type = THREE.PCFSoftShadowMap
+          }}
+        >
+          <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} />
+          <Controls />
+          <Box />
+          <Plane />
+          <AirCraft />
+        </Canvas>
+        <h1 className="three-heading">Greetings!</h1>
+      </>
     )
   }
 }
