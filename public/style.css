@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 html {
   background: rgb(57, 15, 181);
@@ -193,6 +194,47 @@ button:hover {
   margin: 2%;
   padding: 1rem;
 }
+
+/* Calculator */
+.calculator {
+  height: 80%;
+  width: 100%;
+  box-shadow: 0 2rem 4rem var(--shadow);
+  background: black;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.result-screen {
+  height: 19%;
+  font-size: 3rem;
+  font-weight: 400;
+  /* To display the value at the bottom-right of the container */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.computation-screen {
+  height: 6%;
+  font-size: 1rem;
+
+  /* To display the value at the bottom-right of the container */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.screen {
+  background: rgb(237, 53, 145);
+  padding: 0 1.5%;
+}
+
+.keypad-row {
+  height: 11%;
+  display: flex;
+}
+
+/* end of Calculator */
 
 .card-elem {
   margin: 0;
