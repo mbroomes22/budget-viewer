@@ -200,7 +200,7 @@ button:hover {
   height: 80%;
   width: 100%;
   box-shadow: 0 2rem 4rem var(--shadow);
-  background: black;
+  background: rgb(255, 255, 255);
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -225,13 +225,67 @@ button:hover {
 }
 
 .screen {
-  background: rgb(237, 53, 145);
+  background: rgb(134, 154, 199, 0.8);
   padding: 0 1.5%;
 }
 
 .keypad-row {
-  height: 11%;
+  height: 20%;
   display: flex;
+}
+
+.keypad {
+  height: 72.5%;
+}
+
+.btn {
+  width: 25%;
+  height: 100%;
+  font-size: 1.4rem;
+  font-family: inherit;
+  color: black;
+  background: white;
+  border: 1px solid transparent;
+  /* border:none; */
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  color: honeydew;
+  background-color: hotpink;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-large {
+  width: 50%;
+  height: 102%;
+  font-size: 1.4rem;
+  font-family: inherit;
+  color: white;
+  background: rgb(134, 154, 199, 0.8);
+  border: 1px solid transparent;
+  /* border:none; */
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.btn-large:hover {
+  color: honeydew;
+  background-color: rgba(73, 107, 185, 0.8);
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
 
 /* end of Calculator */
