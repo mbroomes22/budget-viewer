@@ -61,7 +61,7 @@ const Box = () => {
     >
       <ambientLight />
       <spotLight position={[0, 5, 10]} penumbra={1} castShadow />
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <torusBufferGeometry attach="geometry" args={[10, 3, 16, 100]} />
       <a.meshPhysicalMaterial attach="material" color={props.color} />
     </a.mesh>
   )
@@ -105,13 +105,13 @@ export default class Income extends Component {
     return (
       <>
         <Canvas
-          camera={{position: [0, 0, 5]}}
+          camera={{position: [10, 10, 50]}}
           onCreated={({gl}) => {
             gl.shadowMap.enabled = true
             gl.shadowMap.type = THREE.PCFSoftShadowMap
           }}
         >
-          <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} />
+          {/* <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} /> */}
           <Controls />
           <Box />
           <Plane />
