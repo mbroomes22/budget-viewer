@@ -8,14 +8,14 @@ import {useSpring, a} from 'react-spring/three'
 
 extend({OrbitControls})
 
-const AirCraft = () => {
-  const [model, setModel] = useState()
-  useEffect(() => {
-    new GLTFLoader().load('../../public/3d_files/airplane/scene.gltf', setModel)
-  })
+// const AirCraft = () => {
+//   const [model, setModel] = useState()
+//   useEffect(() => {
+//     new GLTFLoader().load('../../public/3d_files/airplane/scene.gltf', setModel)
+//   })
 
-  return model ? <primitive object={model.scene} /> : null
-}
+//   return model ? <primitive object={model.scene} /> : null
+// }
 
 const Controls = () => {
   const {camera, gl} = useThree()
@@ -115,7 +115,7 @@ export default class Income extends Component {
           <Controls />
           <Box />
           <Plane />
-          <AirCraft />
+          {/* <AirCraft /> */}
         </Canvas>
         <div className="three-d-soon">
           <h2>Income</h2>
