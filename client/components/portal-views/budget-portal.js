@@ -62,7 +62,7 @@ const Box = () => {
       <ambientLight />
       <spotLight position={[0, 5, 10]} penumbra={1} castShadow />
       <torusKnotBufferGeometry attach="geometry" args={[10, 3, 100, 16]} />
-      <a.meshPhysicalMaterial attach="material" color={props.color} />
+      <a.meshPhongMaterial attach="material" color={props.color} />
     </a.mesh>
   )
 }
