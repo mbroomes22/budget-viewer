@@ -288,6 +288,24 @@ button:hover {
   transform: scale(0.95);
 }
 
+.primary {
+  color: blue;
+}
+
+.primary:hover {
+  color: rgb(40, 40, 158);
+  background: rgb(252, 0, 84);
+}
+
+.operator {
+  color: rgb(34, 34, 85);
+}
+
+.operator:hover {
+  color: rgb(19, 19, 82);
+  background: rgb(52, 156, 130);
+}
+
 /* end of Calculator */
 
 .card-elem {

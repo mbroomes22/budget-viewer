@@ -48,16 +48,28 @@ export default class Calculator extends Component {
         </section>
         <section className="keypad">
           <div className="keypad-row">
-            <button type="button" onClick={this.clear} className="btn">
+            <button type="button" onClick={this.clear} className="btn primary">
               C
             </button>
-            <button type="button" onClick={this.onClick} className="btn">
+            <button
+              type="button"
+              onClick={this.onClick}
+              className="btn primary"
+            >
               &larr;
             </button>
-            <button type="button" onClick={this.onClick} className="btn">
+            <button
+              type="button"
+              onClick={this.onClick}
+              className="btn operator"
+            >
               %
             </button>
-            <button type="button" onClick={this.onClick} className="btn">
+            <button
+              type="button"
+              onClick={this.onClick}
+              className="btn operator"
+            >
               /
             </button>
           </div>
@@ -71,7 +83,11 @@ export default class Calculator extends Component {
             <button type="button" onClick={this.onClick} className="btn">
               7
             </button>
-            <button type="button" onClick={this.onClick} className="btn">
+            <button
+              type="button"
+              onClick={this.onClick}
+              className="btn operator"
+            >
               *
             </button>
           </div>
@@ -85,7 +101,11 @@ export default class Calculator extends Component {
             <button type="button" onClick={this.onClick} className="btn">
               4
             </button>
-            <button type="button" onClick={this.onClick} className="btn">
+            <button
+              type="button"
+              onClick={this.onClick}
+              className="btn operator"
+            >
               -
             </button>
           </div>
@@ -99,7 +119,11 @@ export default class Calculator extends Component {
             <button type="button" onClick={this.onClick} className="btn">
               1
             </button>
-            <button type="button" onClick={this.onClick} className="btn">
+            <button
+              type="button"
+              onClick={this.onClick}
+              className="btn operator"
+            >
               +
             </button>
           </div>
