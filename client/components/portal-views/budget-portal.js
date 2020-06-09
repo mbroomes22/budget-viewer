@@ -38,7 +38,7 @@ const Controls = () => {
 
 const Plane = () => (
   <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-    <planeBufferGeometry attach="geometry" args={[100, 100]} />
+    {/* <planeBufferGeometry attach="geometry" args={[100, 100]} /> */}
     <meshPhysicalMaterial attach="material" color="rgb(57, 15, 181)" />
   </mesh>
 )
@@ -61,7 +61,7 @@ const Box = () => {
     >
       <ambientLight />
       <spotLight position={[0, 5, 10]} penumbra={1} castShadow />
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <torusKnotBufferGeometry attach="geometry" args={[10, 3, 100, 16]} />
       <a.meshPhysicalMaterial attach="material" color={props.color} />
     </a.mesh>
   )
@@ -105,13 +105,13 @@ export default class Budget extends Component {
     return (
       <>
         <Canvas
-          camera={{position: [0, 0, 5]}}
+          camera={{position: [15, 15, 65]}}
           onCreated={({gl}) => {
             gl.shadowMap.enabled = true
             gl.shadowMap.type = THREE.PCFSoftShadowMap
           }}
         >
-          <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} />
+          {/* <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} /> */}
           <Controls />
           <Box />
           <Plane />
