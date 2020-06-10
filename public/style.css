@@ -262,6 +262,7 @@ button:hover {
 
 .computation-screen {
   height: 6%;
+  min-height: 22px;
   font-size: 1rem;
 
   /* To display the value at the bottom-right of the container */
