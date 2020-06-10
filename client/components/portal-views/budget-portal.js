@@ -110,6 +110,7 @@ export default class Budget extends Component {
             gl.shadowMap.enabled = true
             gl.shadowMap.type = THREE.PCFSoftShadowMap
           }}
+          className="budget-canvas"
         >
           {/* <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} /> */}
           <Controls />
@@ -138,7 +139,10 @@ export default class Budget extends Component {
             <hr />
             <p id="countdown">{this.state.display}</p>
             <p>
-              Return to <Link to="/account">Account Details</Link>
+              Return to{' '}
+              <Link to="/account" className="link">
+                Account Details
+              </Link>
             </p>
           </div>
         </div>

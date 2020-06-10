@@ -136,7 +136,10 @@ export default class Income extends Component {
             <hr />
             <p id="countdown">{this.state.display}</p>
             <p>
-              Return to <Link to="/account">Account Details</Link>
+              Return to{' '}
+              <Link to="/account" className="link">
+                Account Details
+              </Link>
             </p>
           </div>
         </div>

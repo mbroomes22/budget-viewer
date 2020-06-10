@@ -38,7 +38,7 @@ const Controls = () => {
 
 const Plane = () => (
   <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-    <planeBufferGeometry attach="geometry" args={[100, 100]} />
+    {/* <planeBufferGeometry attach="geometry" args={[100, 100]} /> */}
     <meshPhysicalMaterial attach="material" color="rgb(57, 15, 181)" />
   </mesh>
 )
@@ -110,6 +110,7 @@ export default class Spending extends Component {
             gl.shadowMap.enabled = true
             gl.shadowMap.type = THREE.PCFSoftShadowMap
           }}
+          className="spending-canvas"
         >
           <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} />
           <Controls />
@@ -117,7 +118,7 @@ export default class Spending extends Component {
           <Plane />
           {/* <AirCraft /> */}
         </Canvas>
-        <div className="three-d-soon">
+        <div className="three-d-soon spending">
           <h2>Spending</h2>
           <h3>
             Enter a new dimension to visualize your spending and see <br />where
@@ -137,7 +138,10 @@ export default class Spending extends Component {
             <hr />
             <p id="countdown">{this.state.display}</p>
             <p>
-              Return to <Link to="/account">Account Details</Link>
+              Return to{' '}
+              <Link to="/account" className="link">
+                Account Details
+              </Link>
             </p>
           </div>
         </div>
