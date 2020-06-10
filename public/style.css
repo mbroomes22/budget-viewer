@@ -185,6 +185,14 @@ button:hover {
   filter: grayscale(0%);
 }
 
+@media screen and (max-width: 900px) {
+  .acct-choices {
+    display: block;
+    margin: 5% 22% 5% 22%;
+    text-align: center;
+  }
+}
+
 /* User Home */
 
 .home {
