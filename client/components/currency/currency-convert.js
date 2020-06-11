@@ -41,7 +41,9 @@ export class CurrencyConverter extends Component {
           <option value="11">Indian Rupee</option>
           <option value="12">Turkish Lira</option>
         </select>
-        <button type="submit">Convert</button>
+        <button type="submit" className="home-action">
+          Convert
+        </button>
       </div>
     )
   }
