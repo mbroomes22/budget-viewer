@@ -4,7 +4,7 @@ export default class BudgetDetails extends Component {
   constructor() {
     super()
     this.state = {
-      goals: {travel: 2000, redesign_bedroom: 600, condo: 300000},
+      goals: {Travel: 2000, 'Redesign bedroom': 600, Condo: 300000},
       income: 0,
       incomeSelect: false
     }
@@ -18,15 +18,26 @@ export default class BudgetDetails extends Component {
   }
 
   render() {
-    console.log('State select=>', this.state.incomeSelect)
+    console.log('State Goals=>', this.state.goals)
+    let goalSent = ''
+    for (let [key, value] of Object.entries(this.state.goals)) {
+      goalSent += `${key} - $${value}, `
+    }
+    console.log('GOAL SENTENCE', goalSent)
     return (
       <div>
-        <h4>Goals:</h4>
-        <button type="button" className="home-action">
-          Set a Goal
-        </button>
+        <h4>Goals: </h4>
+        <p className="goal-sctn">{goalSent}</p>
+        <div className="goal-btns">
+          <button type="button" className="home-action">
+            Set a Goal
+          </button>
+          <button type="button" className="home-action">
+            Edit Goals
+          </button>
+        </div>
         <h4>
-          Income: <span>${this.state.income}/month</span>
+          Income: <span className="goal-sctn">${this.state.income}/month</span>
         </h4>
         <button type="button" className="home-action" onClick={this.editIncome}>
           Set New Income

@@ -389,6 +389,15 @@ button:hover {
   border-color: rgb(27, 94, 156, 0.4);
 }
 
+.goal-btns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.goal-sctn {
+  color: rgb(209, 218, 236);
+}
+
 /* user home actions */
 
 /* action btns */
