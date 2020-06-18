@@ -1,90 +1,73 @@
-import React, {Component, useState, useRef, useEffect} from 'react'
-import * as THREE from 'three'
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
-import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
+import React, {useRef} from 'react'
 import {Canvas, extend, useThree, useFrame} from 'react-three-fiber'
-import {useSpring, a} from 'react-spring/three'
+import {CubeTextureLoader, cubeCamera} from 'three'
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 extend({OrbitControls})
 
-const AirCraft = () => {
-  const [model, setModel] = useState()
-  useEffect(() => {
-    new GLTFLoader().load('../../public/3d_files/airplane/scene.gltf', setModel)
-  })
+const CameraControls = () => {
+  // Get a reference to the Three.js Camera, and the canvas html element.
+  // We need these to setup the OrbitControls class.
+  // https://threejs.org/docs/#examples/en/controls/OrbitControls
 
-  return model ? <primitive object={model.scene} /> : null
-}
+  const {camera, gl: {domElement}} = useThree()
 
-const Controls = () => {
-  const {camera, gl} = useThree()
-  const orbitRef = useRef()
-
-  useFrame(() => {
-    orbitRef.current.update()
-  })
-
+  // Ref to the controls, so that we can update them on every frame with useFrame
+  const controls = useRef()
+  useFrame(() => controls.current.update())
   return (
     <orbitControls
-      autoRotate
-      maxPolarAngle={Math.PI / 3}
-      minPolarAngle={Math.PI / 3}
-      args={[camera, gl.domElement]}
-      ref={orbitRef}
+      ref={controls}
+      args={[camera, domElement]}
+      autoRotate={true}
+      enableZoom={false}
     />
   )
 }
 
-const Plane = () => (
-  <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
-    <planeBufferGeometry attach="geometry" args={[100, 100]} />
-    <meshPhysicalMaterial attach="material" color="rgb(57, 15, 181)" />
-  </mesh>
-)
+// Loads the skybox texture and applies it to the scene.
+function SkyBox() {
+  const {scene} = useThree()
+  const loader = new CubeTextureLoader()
+  // The CubeTextureLoader load method takes an array of urls representing all 6 sides of the cube.
+  const texture = loader.load([
+    '/penguins_39/valley_ft.jpg',
+    '/penguins_39/valley_bk.jpg',
+    '/penguins_39/valley_up.jpg',
+    '/penguins_39/valley_dn.jpg',
+    '/penguins_39/valley_rt.jpg',
+    '/penguins_39/valley_lf.jpg' //16, 17, 33, 39
+  ])
+  // Set the scene background property to the resulting texture.
+  scene.background = texture
+  return null
+}
 
-const Box = () => {
-  const [hovered, setHovered] = useState(false)
-  const [active, setActive] = useState(false)
-  const props = useSpring({
-    scale: active ? [1.5, 1.5, 1.5] : [1, 1, 1],
-    color: hovered ? '#ffaac3' : '#b063c5'
-  })
-
+// A simple sphere in the center of the scene that will reflect the surroundings.
+function Sphere() {
   return (
-    <a.mesh
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-      onClick={() => setActive(!active)}
-      scale={props.scale}
-      castShadow
-    >
-      <ambientLight />
-      <spotLight position={[0, 5, 10]} penumbra={1} castShadow />
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <a.meshPhysicalMaterial attach="material" color={props.color} />
-    </a.mesh>
+    <mesh visible position={[0, 0, 0]} rotation={[0, 0, 0]} castShadow>
+      <sphereGeometry attach="geometry" args={[2, 32, 32]} />
+      <meshBasicMaterial
+        attach="material"
+        // envMap={cubeCamera.renderTarget.texture}
+        color="white"
+        roughness={0.1}
+        metalness={1}
+      />
+    </mesh>
   )
 }
 
-export default class About extends Component {
-  render() {
-    return (
-      <>
-        <Canvas
-          camera={{position: [0, 0, 5]}}
-          onCreated={({gl}) => {
-            gl.shadowMap.enabled = true
-            gl.shadowMap.type = THREE.PCFSoftShadowMap
-          }}
-        >
-          <fog attach="fog" args={['rgb(57, 15, 181)', 5, 15]} />
-          <Controls />
-          <Box />
-          <Plane />
-          <AirCraft />
-        </Canvas>
-        <h1 className="three-heading">Greetings!</h1>
-      </>
-    )
-  }
+// Lights
+function About() {
+  return (
+    <Canvas className="canvas">
+      <CameraControls />
+      <Sphere />
+      <SkyBox />
+    </Canvas>
+  )
 }
+
+export default About
