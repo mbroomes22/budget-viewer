@@ -1,72 +1,119 @@
-import React, {useRef} from 'react'
-import {Canvas, extend, useThree, useFrame} from 'react-three-fiber'
-import {CubeTextureLoader, cubeCamera} from 'three'
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import ReactDOM from 'react-dom'
+import lerp from 'lerp'
+import React, {useRef, useEffect, createRef} from 'react'
+import {Canvas, useFrame, Dom} from 'react-three-fiber'
+import {Block, useBlock} from './blocks'
 
-extend({OrbitControls})
-
-const CameraControls = () => {
-  // Get a reference to the Three.js Camera, and the canvas html element.
-  // We need these to setup the OrbitControls class.
-  // https://threejs.org/docs/#examples/en/controls/OrbitControls
-
-  const {camera, gl: {domElement}} = useThree()
-
-  // Ref to the controls, so that we can update them on every frame with useFrame
-  const controls = useRef()
-  useFrame(() => controls.current.update())
-  return (
-    <orbitControls
-      ref={controls}
-      args={[camera, domElement]}
-      autoRotate={true}
-      enableZoom={false}
-    />
-  )
+const state = {
+  sections: 3,
+  pages: 3,
+  zoom: 75,
+  top: createRef()
 }
 
-// Loads the skybox texture and applies it to the scene.
-function SkyBox() {
-  const {scene} = useThree()
-  const loader = new CubeTextureLoader()
-  // The CubeTextureLoader load method takes an array of urls representing all 6 sides of the cube.
-  const texture = loader.load([
-    '/penguins_39/valley_ft.jpg',
-    '/penguins_39/valley_bk.jpg',
-    '/penguins_39/valley_up.jpg',
-    '/penguins_39/valley_dn.jpg',
-    '/penguins_39/valley_rt.jpg',
-    '/penguins_39/valley_lf.jpg' //16, 17, 33, 39
-  ])
-  // Set the scene background property to the resulting texture.
-  scene.background = texture
-  return null
-}
-
-// A simple sphere in the center of the scene that will reflect the surroundings.
-function Sphere() {
+function Plane({color = 'white', ...props}) {
   return (
-    <mesh visible position={[0, 0, 0]} rotation={[0, 0, 0]} castShadow>
-      <sphereGeometry attach="geometry" args={[2, 32, 32]} />
-      <meshBasicMaterial
-        attach="material"
-        // envMap={cubeCamera.renderTarget.texture}
-        color="white"
-        roughness={0.1}
-        metalness={1}
-      />
+    <mesh {...props}>
+      <planeBufferGeometry attach="geometry" />
+      <meshBasicMaterial attach="material" color={color} />
     </mesh>
   )
 }
 
-// Lights
-function About() {
+function Cross() {
+  const ref = useRef()
+  const {viewportHeight} = useBlock()
+  useFrame(() => {
+    const curTop = state.top.current
+    const curY = ref.current.rotation.z
+    const nextY = curTop / ((state.pages - 1) * viewportHeight) * Math.PI
+    ref.current.rotation.z = lerp(curY, nextY, 0.1)
+  })
   return (
-    <Canvas className="canvas">
-      <CameraControls />
-      <Sphere />
-      <SkyBox />
-    </Canvas>
+    <group ref={ref} scale={[2, 2, 2]}>
+      <Plane scale={[1, 0.2, 0.2]} color="#e2bfca" />
+      <Plane scale={[0.2, 1, 0.2]} color="#e2bfca" />
+    </group>
+  )
+}
+
+function Content({left, children}) {
+  const {contentMaxWidth, canvasWidth, margin} = useBlock()
+  const aspect = 1.75
+  const alignRight = (canvasWidth - contentMaxWidth - margin) / 2
+  return (
+    <group position={[alignRight * (left ? -1 : 1), 0, 0]}>
+      <Plane
+        scale={[contentMaxWidth, contentMaxWidth / aspect, 1]}
+        color="#bfe2ca"
+      />
+      {children}
+    </group>
+  )
+}
+
+function Stripe() {
+  const {contentMaxWidth} = useBlock()
+  return (
+    <Plane
+      scale={[100, contentMaxWidth, 1]}
+      rotation={[0, 0, Math.PI / 4]}
+      position={[0, 0, -1]}
+      color="#e3f6f5"
+    />
+  )
+}
+
+function About() {
+  const scrollArea = useRef()
+  const {contentMaxWidth, mobile} = useBlock()
+  const aspect = 1.75
+  const pixelWidth = contentMaxWidth * state.zoom
+  const onScroll = e => {
+    state.top.current = e.target.scrollTop
+  }
+  useEffect(() => void onScroll({target: scrollArea.current}), [])
+  return (
+    <>
+      <h3>About Us</h3>
+      <Canvas orthographic camera={{zoom: state.zoom, position: [0, 0, 500]}}>
+        {/* First section */}
+        <Block factor={1.5} offset={0}>
+          <Content left>
+            <Dom
+              style={{width: pixelWidth / (mobile ? 1 : 2), textAlign: 'left'}}
+              position={[
+                -contentMaxWidth / 2,
+                -contentMaxWidth / 2 / aspect - 0.4,
+                1
+              ]}
+            >
+              The substance can take you to heaven but it can also take you to
+              hell.
+            </Dom>
+          </Content>
+        </Block>
+        {/* Second section */}
+        <Block factor={2.0} offset={1}>
+          <Content />
+        </Block>
+        {/* Stripe */}
+        <Block factor={-1.0} offset={1}>
+          <Stripe />
+        </Block>
+        {/* Last section */}
+        <Block factor={1.5} offset={2}>
+          <Content left>
+            <Block factor={-0.5}>
+              <Cross />
+            </Block>
+          </Content>
+        </Block>
+      </Canvas>
+      <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
+        <div style={{height: `${state.pages * 100}vh`}} />
+      </div>
+    </>
   )
 }
 
