@@ -62,11 +62,20 @@ function Sphere() {
 // Lights
 function Budget() {
   return (
-    <Canvas className="canvas">
-      <CameraControls />
-      <Sphere />
-      <SkyBox />
-    </Canvas>
+    <>
+      <Canvas className="canvas">
+        <CameraControls />
+        {/* <Sphere /> */}
+        <SkyBox />
+      </Canvas>
+      <iframe
+        width="900"
+        height="800"
+        frameBorder="0"
+        scrolling="no"
+        src="//plotly.com/~MattSundquist/11399.embed"
+      />
+    </>
   )
 }
 

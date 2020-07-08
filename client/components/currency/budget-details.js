@@ -52,6 +52,10 @@ export default class BudgetDetails extends Component {
           </>
         ) : null}
         <h4>Spending:</h4>
+        {/*
+            https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
+            https://www.w3schools.com/howto/howto_js_full_page_tabs.asp
+        */}
         <div className="spend-time">
           <button type="button" className="home-action">
             This Week
