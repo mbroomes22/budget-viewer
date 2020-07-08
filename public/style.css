@@ -385,8 +385,8 @@ button:hover {
 }
 
 .spend-time > .home-action {
-  background: rgb(27, 94, 156);
-  border-color: rgb(27, 94, 156, 0.4);
+  background: rgb(60, 36, 255);
+  border-color: rgba(44, 67, 201);
 }
 
 .goal-btns {
@@ -403,14 +403,14 @@ button:hover {
 /* action btns */
 .home-action {
   padding: 1% 5% 1% 5%;
-  background: rgb(72, 107, 189);
+  background: rgb(60, 36, 255);
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   border-color: rgb(42, 76, 156, 0.4);
 }
 
 .home-action:hover {
-  background: rgb(42, 76, 156);
+  background: rgb(52, 28, 240);
 }
 
 /* Coming Soon Portal Landings */

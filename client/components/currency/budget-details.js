@@ -26,7 +26,15 @@ export default class BudgetDetails extends Component {
     console.log('GOAL SENTENCE', goalSent)
     return (
       <div>
-        <h4>Goals: </h4>
+        <br />
+        <br />
+        <br />
+        <div className="spend-time">
+          <button type="button" className="home-action">
+            Financial Goals
+          </button>
+        </div>
+        {/* <h4>Goals: </h4>
         <p className="goal-sctn">{goalSent}</p>
         <div className="goal-btns">
           <button type="button" className="home-action">
@@ -35,8 +43,16 @@ export default class BudgetDetails extends Component {
           <button type="button" className="home-action">
             Edit Goals
           </button>
+        </div> */}
+        <br />
+        <br />
+        <br />
+        <div className="spend-time">
+          <button type="button" className="home-action">
+            Income
+          </button>
         </div>
-        <h4>
+        {/* <h4>
           Income: <span className="goal-sctn">${this.state.income}/month</span>
         </h4>
         <button type="button" className="home-action" onClick={this.editIncome}>
@@ -50,13 +66,20 @@ export default class BudgetDetails extends Component {
               Update
             </button>
           </>
-        ) : null}
-        <h4>Spending:</h4>
+        ) : null}*/}
+        <br />
+        <br />
+        <br />
+        <div className="spend-time">
+          <button type="button" className="home-action">
+            Spending
+          </button>
+        </div>
         {/*
             https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
             https://www.w3schools.com/howto/howto_js_full_page_tabs.asp
         */}
-        <div className="spend-time">
+        {/* <div className="spend-time">
           <button type="button" className="home-action">
             This Week
           </button>
@@ -66,7 +89,7 @@ export default class BudgetDetails extends Component {
           <button type="button" className="home-action">
             This Year
           </button>
-        </div>
+        </div> */}
       </div>
     )
   }
