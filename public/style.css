@@ -414,11 +414,13 @@ button:hover {
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: rgb(238, 231, 245);
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 5px;
   width: 80%;
+  max-width: 750px;
   color: black;
 }
 
@@ -434,6 +436,46 @@ button:hover {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* modal tabs */
+
+.tabs {
+  border: 1px solid #ccc;
+  padding: 0 3% 5% 3%;
+  margin: 2%;
+}
+
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+  cursor: pointer;
+  background-color: rgb(103, 154, 221);
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: rgb(50, 207, 197);
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
+.tab-content {
+  margin-top: 3%;
+}
+
+.tab-image {
+  max-height: 400px;
+}
+
+.month {
+  background: cornflowerblue;
 }
 
 /* user home actions */
