@@ -19,7 +19,7 @@ const CameraControls = () => {
     <orbitControls
       ref={controls}
       args={[camera, domElement]}
-      autoRotate={true}
+      autoRotate={false}
       enableZoom={false}
     />
   )

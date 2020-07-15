@@ -7,16 +7,7 @@ export default class FinancialGoals extends Component {
       goals: {Travel: 2000, 'Redesign bedroom': 600, Condo: 300000},
       display: ''
     }
-    // this.wrapperRef = React.createRef();
   }
-
-  // componentDidMount() {
-  //   document.addEventListener('mousedown', this.handleClickOutside);
-  // }
-
-  // componentWillUnmount() {
-  //   document.removeEventListener('mousedown', this.handleClickOutside);
-  // }
 
   setGoals = evt => {
     evt.preventDefault()
@@ -32,18 +23,10 @@ export default class FinancialGoals extends Component {
     })
   }
 
-  // handleClickOutside = evt => {
-  //   if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
-  //     this.setState({
-  //       display: 'none'
-  //     })
-  //   }
-  // }
-
   render() {
     let goalSent = ''
     for (let [key, value] of Object.entries(this.state.goals)) {
-      goalSent += `${key} - $${value}, `
+      goalSent += `${key} - $${value} | `
     }
     return (
       <>
@@ -54,7 +37,6 @@ export default class FinancialGoals extends Component {
         </div>
         <div className="modal" style={{display: this.state.display}}>
           <div className="modal-content">
-            {/* <div ref={this.wrapperRef}>{this.props.children}</div> */}
             <span className="close" onClick={this.closeModal}>
               &times;
             </span>

@@ -175,7 +175,7 @@ button:hover {
 }
 
 .portal-card img {
-  border: 2px solid black;
+  border: 20px solid rgb(39, 120, 212);
   filter: grayscale(100%);
   box-shadow: 10px 5px 30px rgb(0, 0, 0);
   border-radius: 100%;
@@ -382,6 +382,8 @@ button:hover {
 .spend-time {
   display: flex;
   justify-content: space-evenly;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .spend-time > .home-action {
@@ -402,7 +404,7 @@ button:hover {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 120px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -422,6 +424,11 @@ button:hover {
   width: 80%;
   max-width: 750px;
   color: black;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
 }
 
 .close {
@@ -444,6 +451,7 @@ button:hover {
   border: 1px solid #ccc;
   padding: 0 3% 5% 3%;
   margin: 2%;
+  max-height: 100%;
 }
 
 .tab-list {
@@ -451,6 +459,7 @@ button:hover {
   padding-left: 0;
   cursor: pointer;
   background-color: rgb(103, 154, 221);
+  max-width: 100%;
 }
 
 .tab-list-item {
@@ -472,6 +481,7 @@ button:hover {
 
 .tab-image {
   max-height: 400px;
+  max-width: 100%;
 }
 
 .month {

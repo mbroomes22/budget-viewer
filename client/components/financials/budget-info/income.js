@@ -17,6 +17,13 @@ export default class Income extends Component {
     })
   }
 
+  setIncome = evt => {
+    evt.preventDefault()
+    this.setState({
+      income: evt.target.value
+    })
+  }
+
   setGoals = evt => {
     evt.preventDefault()
     this.setState({
@@ -58,7 +65,11 @@ export default class Income extends Component {
             {this.state.incomeSelect ? (
               <>
                 <br />
-                <input className="field" placeholder="your monthly income" />
+                <input
+                  className="field"
+                  placeholder="your monthly income"
+                  onChange={this.setIncome}
+                />
                 <button type="submit" className="home-action">
                   Update
                 </button>
