@@ -165,7 +165,7 @@ button:hover {
 .portal-card {
   /* box-shadow: 10px 5px 30px rgb(0, 0, 0);
   background-color: rgb(142, 97, 226, 0.3); */
-  padding: 1rem;
+  padding: 3rem;
   border-radius: 5px;
   height: 400px;
   width: 100%;
@@ -177,7 +177,8 @@ button:hover {
 .portal-card img {
   border: 20px solid rgb(39, 120, 212);
   filter: grayscale(100%);
-  box-shadow: 10px 5px 30px rgb(0, 0, 0);
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+    0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   border-radius: 100%;
   max-width: 100%;
   width: 200px;
@@ -187,6 +188,14 @@ button:hover {
 
 .portal-card:hover img {
   filter: grayscale(0%);
+}
+
+.portal-card:hover h3 {
+  color: lime;
+}
+
+.portal-card:hover h5 {
+  color: lime;
 }
 
 @media screen and (max-width: 900px) {
