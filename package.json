@@ -49,6 +49,7 @@
     "express-session": "^1.15.1",
     "history": "^4.9.0",
     "lerp": "^1.0.3",
+    "lodash-es": "^4.17.15",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
