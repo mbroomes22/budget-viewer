@@ -18,7 +18,7 @@ canvas {
   font-family: 'Chelsea Market', cursive;
   width: 100%;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
   overflow: visible;
   background: black url(https://media.giphy.com/media/WiIuC6fAOoXD2/giphy.gif)
     no-repeat center center;
@@ -165,7 +165,7 @@ button:hover {
 .portal-card {
   /* box-shadow: 10px 5px 30px rgb(0, 0, 0);
   background-color: rgb(142, 97, 226, 0.3); */
-  padding: 1rem;
+  padding: 3rem;
   border-radius: 5px;
   height: 400px;
   width: 100%;
@@ -175,9 +175,10 @@ button:hover {
 }
 
 .portal-card img {
-  border: 2px solid black;
+  border: 20px solid rgb(39, 120, 212);
   filter: grayscale(100%);
-  box-shadow: 10px 5px 30px rgb(0, 0, 0);
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+    0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
   border-radius: 100%;
   max-width: 100%;
   width: 200px;
@@ -187,6 +188,14 @@ button:hover {
 
 .portal-card:hover img {
   filter: grayscale(0%);
+}
+
+.portal-card:hover h3 {
+  color: lime;
+}
+
+.portal-card:hover h5 {
+  color: lime;
 }
 
 @media screen and (max-width: 900px) {
@@ -382,11 +391,13 @@ button:hover {
 .spend-time {
   display: flex;
   justify-content: space-evenly;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .spend-time > .home-action {
-  background: rgb(27, 94, 156);
-  border-color: rgb(27, 94, 156, 0.4);
+  background: rgb(60, 36, 255);
+  border-color: rgba(44, 67, 201);
 }
 
 .goal-btns {
@@ -395,7 +406,95 @@ button:hover {
 }
 
 .goal-sctn {
-  color: rgb(209, 218, 236);
+  color: rgb(27, 59, 121);
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 120px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgb(238, 231, 245);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 750px;
+  color: black;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* modal tabs */
+
+.tabs {
+  border: 1px solid #ccc;
+  padding: 0 3% 5% 3%;
+  margin: 2%;
+  max-height: 100%;
+}
+
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+  cursor: pointer;
+  background-color: rgb(103, 154, 221);
+  max-width: 100%;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: rgb(50, 207, 197);
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
+.tab-content {
+  margin-top: 3%;
+}
+
+.tab-image {
+  max-height: 400px;
+  max-width: 100%;
+}
+
+.month {
+  background: cornflowerblue;
 }
 
 /* user home actions */
@@ -403,14 +502,14 @@ button:hover {
 /* action btns */
 .home-action {
   padding: 1% 5% 1% 5%;
-  background: rgb(72, 107, 189);
+  background: rgb(60, 36, 255);
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   border-color: rgb(42, 76, 156, 0.4);
 }
 
 .home-action:hover {
-  background: rgb(42, 76, 156);
+  background: rgb(52, 28, 240);
 }
 
 /* Coming Soon Portal Landings */
@@ -450,3 +549,21 @@ button:hover {
 .link:hover {
   color: rgb(136, 170, 245);
 }
+
+/* About */
+
+.intro {
+  top: 0;
+  z-index: 2;
+  position: fixed;
+  width: 2200px;
+  height: 100vh;
+  overflow: visible;
+  background: black;
+  display: flex;
+  justify-content: center;
+  color: honeydew;
+}
+
+/* color: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+  0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff; */

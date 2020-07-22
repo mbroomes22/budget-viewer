@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import CurrencyConverter from './currency/currency-convert'
-import BudgetDetails from './currency/budget-details'
-import Stocks from './currency/stocks'
-import Calculator from './currency/calculator'
+import CurrencyConverter from './financials/currency-convert'
+import BudgetDetails from './financials/budget-details'
+import Stocks from './financials/stocks'
+import Calculator from './financials/calculator'
 
 /**
  * COMPONENT
