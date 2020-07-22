@@ -549,3 +549,21 @@ button:hover {
 .link:hover {
   color: rgb(136, 170, 245);
 }
+
+/* About */
+
+.intro {
+  top: 0;
+  z-index: 2;
+  position: fixed;
+  width: 2200px;
+  height: 100vh;
+  overflow: visible;
+  background: black;
+  display: flex;
+  justify-content: center;
+  color: honeydew;
+}
+
+/* color: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+  0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff; */

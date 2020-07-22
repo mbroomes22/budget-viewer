@@ -22,10 +22,11 @@ const Box = props => {
       onPointerOver={e => setHover(true)}
       onPointerOut={e => setHover(false)}
     >
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial
+      <torusGeometry attach="geometry" args={[1, 0.2, 16, 100]} />
+      <meshPhongMaterial
         attach="material"
-        color={hovered ? 'hotpink' : 'orange'}
+        color={hovered ? '#228dff' : 'rgb(134, 154, 199, 0.8)'}
+        reflectivity={0.5}
       />
     </mesh>
   )
@@ -34,13 +35,13 @@ const Box = props => {
 function About() {
   return (
     <>
-      <Canvas>
+      <Canvas className="intro">
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+        <Box position={[-2.5, 0, 0]} />
+        <Box position={[0, 0, 0]} />
+        <Box position={[2.5, 0, 0]} />
       </Canvas>
-      <p>hello</p>
     </>
   )
 }
