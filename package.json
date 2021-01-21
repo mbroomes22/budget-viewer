@@ -69,7 +69,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "sequelize": ">=5.15.1",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "three": "^0.116.1",
     "three-orbitcontrols-ts": "^0.1.2"
   },
